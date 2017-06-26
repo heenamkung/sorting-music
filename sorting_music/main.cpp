@@ -13,8 +13,8 @@ int main() {
 	const int x = 1000;
 	char buff[x];
 	cout << _getcwd(buff, x);
-	cout << _mkdir("hello");
-	cout << rmdir("hello");
+	cout << _mkdir("folder");
+	cout << rmdir("folder2");
 	_chdir("C://Users/Hee/Documents");
 	cout << _getcwd(buff, x);
 	ifstream myfile;
