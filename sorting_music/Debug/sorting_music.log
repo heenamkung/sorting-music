@@ -1,0 +1,5 @@
+﻿  main.cpp
+c:\users\hee\documents\visual studio 2017\projects\sorting_music\sorting_music\main.cpp(17): warning C4996: 'rmdir': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _rmdir. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\direct.h(115): note: see declaration of 'rmdir'
+  sorting_music.vcxproj -> c:\users\hee\documents\visual studio 2017\Projects\sorting_music\Debug\sorting_music.exe
+  sorting_music.vcxproj -> c:\users\hee\documents\visual studio 2017\Projects\sorting_music\Debug\sorting_music.pdb (Partial PDB)
