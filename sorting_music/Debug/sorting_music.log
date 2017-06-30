@@ -1,5 +1,8 @@
 ﻿  main.cpp
-c:\users\hee\documents\visual studio 2017\projects\sorting_music\sorting_music\main.cpp(17): warning C4996: 'rmdir': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _rmdir. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\direct.h(115): note: see declaration of 'rmdir'
-  sorting_music.vcxproj -> c:\users\hee\documents\visual studio 2017\Projects\sorting_music\Debug\sorting_music.exe
-  sorting_music.vcxproj -> c:\users\hee\documents\visual studio 2017\Projects\sorting_music\Debug\sorting_music.pdb (Partial PDB)
+c:\users\hee\documents\visual studio 2017\projects\sorting_music\sorting_music\main.cpp(24): warning C4101: 'header': unreferenced local variable
+c:\users\hee\documents\visual studio 2017\projects\sorting_music\sorting_music\main.cpp(28): warning C4101: 'year': unreferenced local variable
+c:\users\hee\documents\visual studio 2017\projects\sorting_music\sorting_music\main.cpp(25): warning C4101: 'title': unreferenced local variable
+c:\users\hee\documents\visual studio 2017\projects\sorting_music\sorting_music\main.cpp(27): warning C4101: 'album': unreferenced local variable
+c:\users\hee\documents\visual studio 2017\projects\sorting_music\sorting_music\main.cpp(26): warning C4101: 'artist': unreferenced local variable
+  sorting_music.vcxproj -> C:\Users\Hee\documents\visual studio 2017\Projects\sorting_music\Debug\sorting_music.exe
+  sorting_music.vcxproj -> C:\Users\Hee\documents\visual studio 2017\Projects\sorting_music\Debug\sorting_music.pdb (Partial PDB)
