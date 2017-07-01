@@ -97,5 +97,16 @@ int main() {
 	//	cout << c;
 	
 	myfile.close();
+
+	WIN32_FIND_DATA FindFileData;
+	HANDLE hFind;
+
+	hFind = FindFirstFile(L"C:\\Users\\Hee\\Documents\\*.mp3", &FindFileData);
+	cout << FindFileData.cFileName;
+	if (hFind != INVALID_HANDLE_VALUE) {
+		cout << "Hey" << endl;
+	}
+
+
 	system("pause");
 }
