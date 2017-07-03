@@ -1,13 +1,13 @@
 #include <iostream>
-using namespace std;
-#include <list>
 #include <vector>
 #include <Windows.h>
 #include <string>
 #include <utility>
 #include <direct.h>
 #include <fstream>
+#include <tchar.h>
 
+using namespace std;
 
 int main() {
 	/* playing around with directories
@@ -21,6 +21,10 @@ int main() {
 	
 	cout << _getcwd(buff, x) << endl; 
 	*/
+
+	cout << "Enter directory where mp3 files are stored: (e.g: C://Users/Bob/Documents) " << endl;
+	cout << "Sort mp3 file by: 1. Artist 2. Album 3. Year " << endl;
+
 	char header[3];
 	char title[30];
 	char artist[30];
@@ -28,10 +32,10 @@ int main() {
 	char year[4];
 	
 
-	_chdir("C://Users/Hee/Documents"); //change current dir
+	_chdir("C://Users/Hee/Documents/temp"); //change current dir
 	ifstream myfile;
 	myfile.open("rock.mp3");
-	myfile.seekg(-128, myfile.end); //go to 128chars before end of file
+	myfile.seekg(-128, myfile.end); //go to 128chars before end of file where id3 tag infos are stored.
 	char c;
 
 	cout << "Header:";
@@ -104,8 +108,58 @@ int main() {
 	hFind = FindFirstFile(L"C:\\Users\\Hee\\Documents\\*.mp3", &FindFileData);
 	cout << FindFileData.cFileName;
 	if (hFind != INVALID_HANDLE_VALUE) {
-		cout << "Hey" << endl;
+		cout << "First file" << endl;
+		_tprintf(TEXT("The first file found is %s\n"),
+			FindFileData.cFileName); // prints cFileName string
 	}
+
+	FindNextFile(hFind, &FindFileData);
+	if (hFind != INVALID_HANDLE_VALUE) {
+		cout << "Second file" << endl;
+		_tprintf(TEXT("The second file found is %s\n"),
+			FindFileData.cFileName); // prints cFileName string
+	}
+
+	FindNextFile(hFind, &FindFileData);
+	if (hFind != INVALID_HANDLE_VALUE) {
+		cout << "Third file" << endl;
+		_tprintf(TEXT("The third file found is %s\n"),
+			FindFileData.cFileName); // prints cFileName string
+	}
+
+
+
+
+	myfile.open(FindFileData.cFileName);
+	myfile.seekg(-128, myfile.end); //go to 128chars before end of file
+	char d;
+
+	cout << "Header:";
+	for (int i = 0; i < 3; ++i) {
+		myfile.get(d);
+		cout << d;
+	}
+	cout << endl;
+	cout << "Title:";
+	for (int i = 0; i < 30; ++i) {
+		myfile.get(d);
+		cout << d;
+	}
+	cout << endl;
+
+	cout << "Artist:";
+	for (int i = 0; i < 30; ++i) {
+		myfile.get(d);
+		cout << d;
+	}
+	cout << endl;
+	if (MoveFile(L"C:\\Users\\Hee\\Documents\\rock.mp3", L"C:\\Users\\Hee\\Documents\\temp\\rock.mp3") == 0) {
+		GetLastError();
+		cout << "error" << endl;
+
+	}
+	
+
 
 
 	system("pause");
