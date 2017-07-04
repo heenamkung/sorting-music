@@ -1,8 +1,3 @@
 ﻿  main.cpp
-c:\users\hee\documents\visual studio 2017\projects\sorting_music\sorting_music\main.cpp(28): warning C4101: 'header': unreferenced local variable
-c:\users\hee\documents\visual studio 2017\projects\sorting_music\sorting_music\main.cpp(32): warning C4101: 'year': unreferenced local variable
-c:\users\hee\documents\visual studio 2017\projects\sorting_music\sorting_music\main.cpp(29): warning C4101: 'title': unreferenced local variable
-c:\users\hee\documents\visual studio 2017\projects\sorting_music\sorting_music\main.cpp(31): warning C4101: 'album': unreferenced local variable
-c:\users\hee\documents\visual studio 2017\projects\sorting_music\sorting_music\main.cpp(30): warning C4101: 'artist': unreferenced local variable
   sorting_music.vcxproj -> C:\Users\Hee\documents\visual studio 2017\Projects\sorting_music\Debug\sorting_music.exe
   sorting_music.vcxproj -> C:\Users\Hee\documents\visual studio 2017\Projects\sorting_music\Debug\sorting_music.pdb (Partial PDB)
