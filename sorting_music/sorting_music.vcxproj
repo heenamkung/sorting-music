@@ -142,8 +142,11 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="mp3_sort.h" />
-    <ClInclude Include="wstring_conv.h" />
+    <ClInclude Include="mp3Tag.h" />
+    <ClInclude Include="stringHandling.h" />
+    <ClInclude Include="scanFile.h" />
+    <ClInclude Include="sortFile.h" />
+    <ClInclude Include="userInput.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -20,10 +20,19 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="wstring_conv.h">
+    <ClInclude Include="scanFile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="mp3_sort.h">
+    <ClInclude Include="userInput.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mp3Tag.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sortFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stringHandling.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

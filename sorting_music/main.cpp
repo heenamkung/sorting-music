@@ -6,23 +6,13 @@
 #include <fstream>
 #include <tchar.h>
 #include <algorithm>
-#include "mp3_sort.h"
+#include "userInput.h"
+#include "stringHandling.h"
+#include "scanFile.h"
 
 using namespace std;
 
 
-
-
-
-/* playing around with directories
-
-const int x = 1000;
-char buff[x];
-cout << _getcwd(buff, x); //retrive current dir
-cout << _mkdir("folder2")<<endl; //make dir
-cout << rmdir("folder") << endl; //remove dir
-
-*/
 
 int main() {
 
@@ -31,7 +21,7 @@ int main() {
 
 	mp3_folder = get_directory();
 	mode = get_sorting_mode();
-
+	//file handlers 
 	WIN32_FIND_DATA FindFileData;
 	HANDLE hFind;
 
