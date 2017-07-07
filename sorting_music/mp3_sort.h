@@ -7,12 +7,23 @@ using namespace std;
 #include <direct.h>
 #include <fstream>
 #include <algorithm>
-#include <tchar.h>
+#include <tchar.h> 
+#include <functional> 
+#include <cctype>
+#include <locale>
+
+//https://stackoverflow.com/questions/216823/whats-the-best-way-to-trim-stdstring?page=1&tab=votes#tab-top trim string function
+static inline std::string &rtrim(std::string &s) {
+	s.erase(std::find_if(s.rbegin(), s.rend(),
+		std::not1(std::ptr_fun<int, int>(std::isspace))).base(), s.end());
+	return s;
+}
+
 
 string get_directory() {
 	cout << "Enter directory where mp3 files are stored: (e.g: C://Users/Bob/Documents) " << endl;
 	string mp3_dir; // Get directory where mp3 files are stored
-					//cin >> mp3_dir;
+	//cin >> mp3_dir;
 	mp3_dir = "C://Users/Hee/Documents/temp";
 
 	_chdir(mp3_dir.c_str()); //change current dir to mp3_dir
@@ -21,8 +32,8 @@ string get_directory() {
 
 int get_sorting_mode() {
 	cout << "Sort mp3 file by: 1. Artist 2. Album 3. Year (Enter integer value)" << endl;
-	int sorting_mode = 1;
-	//cin >> sorting_mode;
+	int sorting_mode;
+	cin >> sorting_mode;
 	return sorting_mode;
 }
 
@@ -33,32 +44,47 @@ string return_tag(const wstring file_name, int mode) {
 	char temp;
 	switch (mode) {
 	case 1:
-		char artist[30];
+		char artist[31];
 		mp3File.seekg(-95, mp3File.end);
 		for (int i = 0; i < 30; ++i) {
 			mp3File.get(temp);
+			if (temp == '0') {
+				break;
+			}
 			artist[i] = temp;
+			cout << artist[i] ;
+			
 		}
+		artist[30] = '\0';
+		cout << endl;
 		mp3File.close();
 		return string(artist);
 
 	case 2:
-		char album[30];
+		char album[31];
 		mp3File.seekg(-65, mp3File.end);
 		for (int i = 0; i < 30; ++i) {
 			mp3File.get(temp);
 			album[i] = temp;
+			cout << album[i];
+			
 		}
+		album[30] = '\0';
+		cout << endl;
 		mp3File.close();
 		return string(album);
 
 	default:
-		char year[4];
+		char year[5];
 		mp3File.seekg(-35, mp3File.end);
 		for (int i = 0; i < 4; ++i) {
 			mp3File.get(temp);
 			year[i] = temp;
+			cout << year[i];
+			
 		}
+		year[4] = '\0';
+		cout << endl;
 		mp3File.close();
 		return string(year);
 	}
@@ -93,11 +119,12 @@ wstring conv(string str) {
 }
 
 void sort_file(string sort_by, WIN32_FIND_DATA FindFileData) {
+	rtrim(sort_by);
 	_mkdir(sort_by.c_str()); //create folder named sort_by
 	cout << sort_by.c_str() << endl;
 	wstring loc = conv("C:\\Users\\Hee\\Documents\\temp\\");
 	wstring x = loc + FindFileData.cFileName;
-	wstring y = loc + conv(sort_by) + L"\\" + FindFileData.cFileName;
+	wstring y = loc + conv(sort_by.c_str()) + L"\\" + FindFileData.cFileName;
 
 
 	if (MoveFile(x.c_str(), y.c_str()) == 0) {
@@ -107,3 +134,28 @@ void sort_file(string sort_by, WIN32_FIND_DATA FindFileData) {
 
 }
 
+bool scanFirstFile(HANDLE& hFind, WIN32_FIND_DATAW FindFileData, wstring all_mp3, int mode) {
+	hFind = FindFirstFile(all_mp3.c_str(), &FindFileData);
+
+	if (hFind != INVALID_HANDLE_VALUE) {
+		//_tprintf(TEXT("The first file found is %s\n"),
+		//	FindFileData.cFileName); // prints cFileName string
+
+		string temp = return_tag(FindFileData.cFileName, mode);
+		sort_file(temp, FindFileData);
+	}
+	else {
+		cout << "Mp3 file not found" << endl;
+		return 0;
+	}
+}
+
+void scanNextFile(HANDLE& hFind, WIN32_FIND_DATAW FindFileData, int mode) {
+	if (hFind != INVALID_HANDLE_VALUE) {
+		//_tprintf(TEXT("The second file found is %s\n"),
+		//	FindFileData.cFileName); // prints cFileName string
+									 //strcpy(artist, return_tag(FindFileData.cFileName, 1));
+		string temp = return_tag(FindFileData.cFileName, mode);
+		sort_file(temp, FindFileData);
+	}
+}

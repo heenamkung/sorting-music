@@ -1,3 +1,5 @@
 ﻿  main.cpp
+c:\users\hee\documents\visual studio 2017\projects\sorting_music\sorting_music\mp3_sort.h(151): warning C4715: 'scanFirstFile': not all control paths return a value
+c:\users\hee\documents\visual studio 2017\projects\sorting_music\sorting_music\main.cpp(41): warning C4700: uninitialized local variable 'FindFileData' used
   sorting_music.vcxproj -> C:\Users\Hee\documents\visual studio 2017\Projects\sorting_music\Debug\sorting_music.exe
   sorting_music.vcxproj -> C:\Users\Hee\documents\visual studio 2017\Projects\sorting_music\Debug\sorting_music.pdb (Partial PDB)
