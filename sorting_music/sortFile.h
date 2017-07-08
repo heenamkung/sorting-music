@@ -18,6 +18,7 @@ using namespace std;
 */
 
 void sort_file(string sort_by, WIN32_FIND_DATA FindFileData, wstring mp3_folder) {
+	
 	rtrim(sort_by);
 	_mkdir(sort_by.c_str()); //create folder named sort_by
 	cout << GetLastErrorAsString() << endl;

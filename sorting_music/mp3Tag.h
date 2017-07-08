@@ -19,6 +19,19 @@ string return_tag(const wstring file_name, int mode) {
 	ifstream mp3File;
 	mp3File.open(file_name);
 	char temp;
+	char tag[4];
+	mp3File.seekg(-128, mp3File.end);
+	for (int i = 0; i < 3; ++i) {
+		mp3File.get(temp);
+		tag[i] = temp;
+		cout << tag[i];
+	}
+	tag[3] = '\0';
+	if (string(tag) != "TAG") {
+		return "";
+	}
+	mp3File.clear();
+
 	switch (mode) {
 	case 1:
 		char artist[31];
