@@ -8,11 +8,15 @@ using namespace std;
 #include <fstream>
 #include <algorithm>
 
+/**
+*Asks user the path (where mp3 files are stored) and how to sort the mp3 files.
+*/
+
 string get_directory() {
 	cout << "Enter directory where mp3 files are stored: (e.g: C://Users/Bob/Documents) " << endl;
 	string mp3_dir; // Get directory where mp3 files are stored
-					//cin >> mp3_dir;
-	mp3_dir = "C://Users/Hee/Documents/temp";
+	cin >> mp3_dir;
+	
 
 	_chdir(mp3_dir.c_str()); //change current dir to mp3_dir
 	return mp3_dir;

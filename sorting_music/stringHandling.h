@@ -21,6 +21,8 @@ static inline std::string &rtrim(std::string &s) { //function to trim string
 
 
 
+
+
 std::string GetLastErrorAsString() //https://stackoverflow.com/questions/1387064/how-to-get-the-error-message-from-the-error-code-returned-by-getlasterror answer by jamin grey
 {
 	//Get the error message, if any.
