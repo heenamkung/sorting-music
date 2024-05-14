@@ -11,5 +11,5 @@ Sorts all mp3 files in a single folder to sub-folders according to Artist, Album
 - Windows 10
 
 ## Demo
-[Demo Video] (https://www.youtube.com/watch?v=p4-y1AHkvQQ&feature=youtu.be)
+[Demo Video] (https://www.youtube.com/watch?v=DryMM2lq0eE&ab_channel=HeesLabs)
 
